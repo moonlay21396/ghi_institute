@@ -56,7 +56,7 @@
                                         <div class="content-pad single-course-detail">
                                             <div class="course-detail">
                                                 <div class="course-speaker">
-                                                    <h4 class="text_name">Course Name</h4>
+                                                <h4 class="text_name">{{$course_detail->name}}</h4>
                                                     {{-- <div class="row">   
                                                         <div class="col-md-6 col-sm-6">
                                                             <div class="media professor">

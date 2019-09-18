@@ -28,8 +28,8 @@
                         <div class="filter-cat pull-right" style="border: 2px #eaeaea;">
                             <ul class="nav nav-pills">
                                 <li class="active"><a data-toggle="tab" href="#all">All</a></li>
-                                <li><a data-toggle="tab" href="#academics">Academics</a></li>
-                                <li><a data-toggle="tab" href="#others">Others</a></li>
+                                <li><a data-toggle="tab" href="#academics">Upcoming</a></li>
+                                <li><a data-toggle="tab" href="#others">Past</a></li>
                             </ul>
                         </div>
                     </div>

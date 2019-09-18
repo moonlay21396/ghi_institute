@@ -47,7 +47,7 @@
                                         <div class="content-pad single-course-detail">
                                             <div class="course-detail">
                                                 <div class="course-speaker">
-                                                    <h4 class="text_name">Event Name</h4>
+                                                    <h4 class="text_name">{{$event_detail->title}}</h4>
                                                     <br>
                                                     {{-- <div class="row">   
                                                         <div class="col-md-6 col-sm-6">
@@ -135,7 +135,7 @@
                                                         </button>
                                                     </div>
                                                     
-                                                    <div class="related-course">
+                                                    {{-- <div class="related-course">
                                                         <h3>Related Events</h3>
                                                         <div class="cr-content">
                                                             <div class="row">
@@ -168,7 +168,7 @@
                                                                 </div>
                                                             </div>
                                                        </div>
-                                                    </div>                                 
+                                                    </div>                                  --}}
                                                 </div><!--/content-content-->
                                             </div><!--/course-detail-->
                                         </div><!--/single-content-detail-->         
