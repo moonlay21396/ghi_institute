@@ -84,11 +84,11 @@
               <div class="item active">
                 <img src="{{url('images/1st_Banner.png')}}" alt="Los Angeles" style="width:100%;">
                 <div class="carousel-caption">
-                  <h1 class="main_class">Change By Creativity</h1>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque vel, distinctio veniam dignissimos fugiat eius facilis sed illum. Nostrum necessitatibus itaque tenetur ea iusto voluptatibus fugit quidem suscipit blanditiis illum?</p>
+                    <h1 class="main_class" style="color: #08650b;text-shadow: 5px 3px 0px #fff;">Change By Creativity</h1>
+
                   <br>
-                  <a href="#" class="btn-ss">Online Course</a>
-                  <a href="#" class="btn-ss2">Academics Course</a>
+{{--                  <a href="#" class="btn-ss">Online Course</a>--}}
+{{--                  <a href="#" class="btn-ss2">Academics Course</a>--}}
                   <br><br>
                 </div>
               </div>
@@ -96,11 +96,11 @@
               <div class="item">
                 <img src="{{url('images/2nd_Banner.png')}}" alt="Chicago" style="width:100%;">
                 <div class="carousel-caption">
-                  <h1 class="main_class">Change By Creativy</h1>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque vel, distinctio veniam dignissimos fugiat eius facilis sed illum. Nostrum necessitatibus itaque tenetur ea iusto voluptatibus fugit quidem suscipit blanditiis illum?</p>
+                    <h1 class="main_class" style="color: #08650b;text-shadow: 5px 3px 0px #fff;">Change By Creativity</h1>
+
                   <br>
-                  <a href="#" class="btn-ss">Online Course</a>
-                  <a href="#" class="btn-ss2">Academics Course</a>
+{{--                  <a href="#" class="btn-ss">Online Course</a>--}}
+{{--                  <a href="#" class="btn-ss2">Academics Course</a>--}}
                   <br><br>
                 </div>
               </div>
@@ -108,11 +108,11 @@
               <div class="item">
                 <img src="{{url('images/3rd_Banner.png')}}" alt="New York" style="width:100%;">
                 <div class="carousel-caption">
-                  <h1 class="main_class">Change By Creativy</h1>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque vel, distinctio veniam dignissimos fugiat eius facilis sed illum. Nostrum necessitatibus itaque tenetur ea iusto voluptatibus fugit quidem suscipit blanditiis illum?</p>
+                  <h1 class="main_class" style="color: #08650b;text-shadow: 5px 3px 0px #fff;">Change By Creativity</h1>
+
                   <br>
-                  <a href="#" class="btn-ss">Online Course</a>
-                  <a href="#" class="btn-ss2">Academics Course</a>
+{{--                  <a href="#" class="btn-ss">Online Course</a>--}}
+{{--                  <a href="#" class="btn-ss2">Academics Course</a>--}}
                   <br><br>
                 </div>
               </div>
@@ -192,7 +192,7 @@
                                 </div>
                                 <div class="icon-post">
                                     <div class="box-title">
-                                        <a href="#">Education Organization</a>
+                                        <a href="https://athe.co.uk/athe-level-4-diploma-in-computing/">Education Organization</a>
                                     </div>
                                     <div class="box-content">
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt lorem ipsum</p>
@@ -206,7 +206,7 @@
                                 </div>
                                 <div class="icon-post">
                                     <div class="box-title">
-                                        <a href="#">Training Center</a>
+                                        <a href="{{url('courseList')}}">Training Center</a>
                                     </div>
                                     <div class="box-content">
                                         <p>ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
@@ -220,7 +220,7 @@
                                 </div>
                                 <div class="icon-post">
                                     <div class="box-title">
-                                        <a href="#">Event</a>
+                                        <a href="{{url('eventList')}}">Event</a>
                                     </div>
                                     <div class="box-content">
                                         <p>You can use this theme for university, training center, non-profit organization. There is no limits to University.</p>
@@ -248,7 +248,7 @@
                                 </div>
                                 <div class="icon-post">
                                     <div class="box-title">
-                                        <a href="#">Blog</a>
+                                        <a href="{{url('blogList')}}">Blog</a>
                                     </div>
                                     <div class="box-content">
                                         <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur dignissimos</p>
@@ -262,7 +262,7 @@
                                 </div>
                                 <div class="icon-post">
                                     <div class="box-title">
-                                        <a href="#">Contact</a>
+                                        <a href="{{url('contact')}}">Contact</a>
                                     </div>
                                     <div class="box-content">
                                         <p>We provide free support for customers from Monday to Friday. Contact us for any issues you have</p>
@@ -294,7 +294,7 @@
                                 <div class="grid-item-inner">
                                     <div class="event-item">
                                         <div class="event-thumbnail">
-                                            <a href="#"><img src="{{$academic_course['0']['photo_url']}}" alt="image" style="width: 100%; height: 345px;">
+                                            <a href="https://athe.co.uk/athe-level-4-diploma-in-computing/"><img src="{{$academic_course['0']['photo_url']}}" alt="image" style="width: 100%; height: 347px;">
                                             </a>
                                         </div><!-- /event-thumbnail -->
 
@@ -308,7 +308,7 @@
                                                 <div class="cs-category-links">
                                                     <a class="overlay-top" href="#">
                                                         <h4>{{$academic_course['0']['name']}}</h4>
-                                                        <span class="price yellow">{{$academic_course['0']['fee']}} MMK</span>
+                                                        <span class="price yellow">{{$academic_course['0']['fee']}} </span>
                                                     </a>
 
                                                     <div class="overlay-footer">
@@ -428,6 +428,9 @@
         <section class="flat-row full-color">
             <div class="container">                
                 <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="h3 text-center text-success" style="font-size:30px; margin-bottom: 30px;">Testimonial</h3>
+                    </div>
                     <div class="col-md-12">
                         <div class="flat-reviews">
                             <div class="flat-causes">
@@ -594,6 +597,34 @@
                                                         <div class="event-thumbnail">
                                                             <a href="#">
                                                                 <img src="{{asset('images/client_logo/WCC.png')}}" alt="image">
+                                                            </a>
+                                                        </div><!-- /event-thumbnail -->
+                                                        
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="grid-item">
+                                                <div class="grid-item-inner">
+                                                    <div class="event-item">
+                                                        <div class="event-thumbnail">
+                                                            <a href="#">
+                                                                <img src="{{asset('images/client_logo/WLK_Foundation.png')}}" alt="image">
+                                                            </a>
+                                                        </div><!-- /event-thumbnail -->
+                                                        
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="grid-item">
+                                                <div class="grid-item-inner">
+                                                    <div class="event-item">
+                                                        <div class="event-thumbnail">
+                                                            <a href="#">
+                                                                <img src="{{asset('images/client_logo/WLK_Multimedia.png')}}" alt="image">
                                                             </a>
                                                         </div><!-- /event-thumbnail -->
                                                         

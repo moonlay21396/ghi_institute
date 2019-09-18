@@ -67,10 +67,10 @@
                                        
                                     </li>
                                     <li>
-                                    <a href="{{url('/member')}}">Members <span class="menu-description">Our Activities</span></a>
+                                    <a href="{{url('/member')}}">Members <span class="menu-description">Our Members</span></a>
                                        
                                     </li>
-                                    <li class="has-mega-menu"><a href="{{url('/contact')}}">Contact <span class="menu-description">Simple &amp; Useful</span></a>
+                                    <li class="has-mega-menu"><a href="{{url('/contact')}}">Contact <span class="menu-description">Our Contact</span></a>
                                       
                                     </li>  
                                     <li>

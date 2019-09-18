@@ -21,37 +21,43 @@
 
             <li class="nav-item @if($url=="course") active @endif">
                 <a class="nav-link" href="{{url('admin')}}">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons">book</i>
                     <p>Course</p>
+                </a>
+            </li>
+            <li class="nav-item @if($url=="course_for_home") active @endif">
+                <a class="nav-link" href="{{url('admin/course_for_home')}}">
+                    <i class="material-icons">dashboard</i>
+                    <p>Course For Homepage</p>
                 </a>
             </li>
             <li class="nav-item @if($url=="member") active @endif">
                 <a class="nav-link" href="{{url('admin/member')}}">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons">group</i>
                     <p>Member</p>
                 </a>
             </li>
             <li class="nav-item @if($url=="event") active @endif">
                 <a class="nav-link" href="{{url('admin/event')}}">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons">event</i>
                     <p>Event</p>
                 </a>
             </li>
             <li class="nav-item @if($url=="blog") active @endif">
                 <a class="nav-link" href="{{url('admin/blog')}}">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons">view_module</i>
                     <p>Blog</p>
                 </a>
             </li>
             <li class="nav-item @if($url=="teacher_account") active @endif">
                 <a class="nav-link" href="{{url('admin/teacher_account')}}">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons">person</i>
                     <p>Teacher Accout</p>
                 </a>
             </li>
             <li class="nav-item @if($url=="enrollment") active @endif">
                 <a class="nav-link" href="{{url('admin/eventStudent')}}">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons">list</i>
                     <p>Enrollment list</p>
                 </a>
             </li>

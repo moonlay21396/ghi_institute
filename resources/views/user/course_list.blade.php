@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-12">                    
                         <div class="page-title-heading">
-                            <h2 class="title">Course List Classic</h2>
+                            <h2 class="title">Courses</h2>
                         </div>
                         <div class="breadcrumbs">
                             <ul>
@@ -18,7 +18,7 @@
                 </div><!-- /.row -->  
             </div><!-- /.container -->                      
         </div><!-- /page-title -->
-        
+
         <section class="flat-row padding-big">
             <div class="container">
                 <div class="row">
@@ -26,17 +26,20 @@
                         <div class="flat-blog">
                             <div class="section-body">
                                 <div class="row">
+                                    <h1 class="title_name" style="font-size: 28px; text-align: center; color: #343434;margin-bottom: 40px;">Academics Course</h1>
+                                    @foreach($academic_course as $data)
                                     <div class="col-md-12 shortcode-blog-item">
                                         <div class="content-pad">
                                             <div class="post-item row">
+                                                
                                                 <div class="col-md-9 col-sm-12">
                                                     <div class="content-pad">
                                                         <div class="item-thumbnail">
-                                                            <a href="{{url('/courseSingle/'.$academic_course['0']['id'])}}">
-                                                                <img src="{{$academic_course['0']['photo_url']}}" alt="image">
+                                                            <a href="{{url('/courseSingle/'.$data->id)}}">
+                                                                <img src="{{$data->photo_url}}" alt="image">
                                                                 <span class="thumbnail-overlay">
                                                                     @php
-                                                                        $date = $academic_course['0']['start_date'];
+                                                                        $date = $data->start_date;
                                                                             $year = substr($date,0,4);
                                                                                  $month = substr($date,5,3);
                                                                                  $day = substr($date,8,2);
@@ -104,13 +107,13 @@
                                                     <div class="content-pad">
                                                         <div class="item-content">
                                                             <h3 class="item-title">
-                                                                <a href="#" title="Your Career Starts Here" class="main-color-1-hover">{{$academic_course['0']['name']}}</a>
+                                                                <a href="https://athe.co.uk/athe-level-4-diploma-in-computing/" title="Your Career Starts Here" class="main-color-1-hover">{{$data->name}}</a>
                                                             </h3>
                                                             <div class="shortcode-blog-excerpt">
-                                                                {{str_limit(preg_replace("/&#?[a-z0-9]{2,8};/i","",strip_tags($academic_course['0']['description'])),150)}}
+                                                                {{str_limit(preg_replace("/&#?[a-z0-9]{2,8};/i","",strip_tags($data->description)),150)}}
                                                             </div>
                                                             <div class="item-meta">
-                                                            <a class="flat-button" href="{{url('/courseSingle/'.$academic_course['0']['id'])}}" title="Your Career Starts Here">DETAILS <i class="fa fa-angle-right"></i></a>
+                                                            <a class="flat-button" href="{{url('/courseSingle/'.$data->id)}}" title="Your Career Starts Here">DETAILS <i class="fa fa-angle-right"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -118,11 +121,13 @@
                                             </div><!--/post-item-->
                                         </div>
                                     </div><!--/shortcode-blog-item-->
+                                    @endforeach
                                 </div><!--/row-->
                             </div>
                         </div>
                     </div>
                 </div>
+                <h1 class="title_name" style="font-size: 28px; text-align: center; color: #343434;margin-bottom: 40px;margin-top: 40px;">Vocational Course</h1>
                 <div class="row">
                     @foreach($other_course as $data)
                     <div class="col-md-6">
@@ -228,7 +233,7 @@
                     @endforeach
 
                 </div>
-                {{$paginate_other_course->links()}}
+{{--                {{$paginate_other_course->links()}}--}}
             </div>
         </section>
 @endsection

@@ -142,4 +142,38 @@ class CourseController extends Controller
         }
         return json_encode($arr);
     }
+
+//    for homepage course
+    public function show_home_course()
+    {
+        return view('admin.site_admin.homepage_course')->with([
+            'url'=>'course_for_home'
+        ]);
+    }
+
+    public function get_all_other_course(){
+        $courses_o=Course::where('category','diploma')->orWhere('category','online course')->orderBy('id','desc')->get();
+        $other_course=[];
+        foreach ($courses_o as $data){
+            $course_data=new CourseData($data->id);
+            array_push($other_course,$course_data->getCourseData());
+        }
+        return json_encode($other_course);
+    }
+
+    public function change_home($id)
+    {
+        Course::findOrFail($id)->update([
+            'forhome'=>'home'
+        ]);
+    }
+
+    public function change_default($id)
+    {
+        Course::findOrFail($id)->update([
+            'forhome'=>'default'
+        ]);
+    }
+
+
 }

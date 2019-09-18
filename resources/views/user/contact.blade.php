@@ -11,7 +11,7 @@
                         <div class="breadcrumbs">
                             <ul>
                                 <li class="home"><a href="#">Home </a></li>
-                                <li>\ </li>
+                                <li>\ Contact</li>
                             </ul>                   
                         </div>                  
                     </div><!-- /.col-md-12 -->  
@@ -57,7 +57,7 @@
                                 <div class="col-md-6">
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <div id="map" style="width: 100%; height: 500px; "></div> 
+                                            <div id="map" style="width: 100%; height: 500px; "><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11749.146565839581!2d96.21044653812916!3d16.84339412180221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c19373aae8dda7%3A0x66b1fddc29486ea!2sGreen%20Hackers%20Institute%20(GHI%20MYANMAR)!5e0!3m2!1sen!2smm!4v1568185513071!5m2!1sen!2smm" width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
                                         </div>
                                     </div><!-- /container-fluid -->
                                 </div>

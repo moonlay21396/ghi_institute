@@ -14,6 +14,7 @@ class Course extends Model
         'duration',
         'fee',
         'description',
-        'category'
+        'category',
+        'forhome'
     ];
 }

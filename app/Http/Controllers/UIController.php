@@ -16,29 +16,38 @@ use Illuminate\Support\Facades\Session;
 class UIController extends Controller
 {    
     public function HomePage(){
-        $courses=Course::where('category','academic')->orderBy('id','desc')->limit(1)->get();
+        $courses=Course::where('category','academic')->orderBy('id','asc')->limit(1)->get();
         $academic_course=[];
         foreach ($courses as $data){
             $course_data=new CourseData($data->id);
             array_push($academic_course,$course_data->getCourseData());
         }
 
-        $courses_o=Course::where('category','diploma')->orWhere('category','online course')->orderBy('id','desc')->limit(4)->get();
+        $courses_o=Course::where('forhome','home')->orderBy('id','desc')->limit(4)->get();
         $other_course=[];
         foreach ($courses_o as $data){
             $course_data=new CourseData($data->id);
             array_push($other_course,$course_data->getCourseData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
 
         return view('user.index')->with([
             'academic_course'=>$academic_course,
-            'other_course'=>$other_course
+            'other_course'=>$other_course,
+            'recent_blogs'=>$recent_blog_arr
         ]);
     }
 
     public function member()
     {
-        $members=Member::orderBy('id', 'desc')->get();
+        $members=Member::all();
         $arr=[];
         foreach ($members as $data){
             $member_data=new MemberData($data->id);
@@ -66,32 +75,41 @@ class UIController extends Controller
             $latest_event_data=new EventData($data->id);
             array_push($latest_event_arr,$latest_event_data->getEventData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
 
         return view('user.member')->with([
             'member'=>$arr,
             'latest_blogs'=>$latest_blog_arr,
             'latest_courses'=>$latest_other_course,
-            'latest_events'=>$latest_event_arr
+            'latest_events'=>$latest_event_arr,
+            'recent_blogs'=>$recent_blog_arr
         ]);
     }
 
     public function eventList()
     {
-        $events=Event::where('date', '>=', date('Y-m-d'))->orderBy('date')->paginate(5);
+        $events=Event::orderBy('date')->paginate(5);
         $arr=[];
         foreach ($events as $data){
             $event_data=new EventData($data->id);
             array_push($arr,$event_data->getEventData());
         }
 
-        $academic_events=Event::where('date', '>=', date('Y-m-d'))->where('event_category','academy')->orderBy('date')->paginate(5);
+        $academic_events=Event::where('date', '>=', date('Y-m-d'))->orderBy('date')->paginate(5);
         $academic_event_arr=[];
         foreach ($academic_events as $data){
             $academic_event_data=new EventData($data->id);
             array_push($academic_event_arr,$academic_event_data->getEventData());
         }
 
-        $other_events=Event::where('date', '>=', date('Y-m-d'))->where('event_category','other')->orderBy('date')->paginate(5);
+        $other_events=Event::where('date', '<', date('Y-m-d'))->orderBy('date','desc')->paginate(5);
         $other_event_arr=[];
         foreach ($other_events as $data){
             $other_event_data=new EventData($data->id);
@@ -119,6 +137,14 @@ class UIController extends Controller
             $latest_event_data=new EventData($data->id);
             array_push($latest_event_arr,$latest_event_data->getEventData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
 
         return view('user.event_list')->with([
             'events'=>$arr,
@@ -129,30 +155,40 @@ class UIController extends Controller
             'paginate_other_events'=>$other_events,
             'latest_blogs'=>$latest_blog_arr,
             'latest_courses'=>$latest_other_course,
-            'latest_events'=>$latest_event_arr
+            'latest_events'=>$latest_event_arr,
+            'recent_blogs'=>$recent_blog_arr
         ]);
     }
 
     public function courseList()
     {
-        $courses=Course::where('category','academic')->orderBy('id','desc')->limit(1)->get();
+        $courses=Course::where('category','academic')->orderBy('id','desc')->get();
         $academic_course=[];
         foreach ($courses as $data){
             $course_data=new CourseData($data->id);
             array_push($academic_course,$course_data->getCourseData());
         }
 
-        $courses_o=Course::where('category','diploma')->orWhere('category','online course')->orderBy('id','desc')->paginate(6);
+        $courses_o=Course::where('category','diploma')->orWhere('category','online course')->orderBy('id','desc')->get();
         $other_course=[];
         foreach ($courses_o as $data){
             $course_data=new CourseData($data->id);
             array_push($other_course,$course_data->getCourseData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
 
         return view('user.course_list')->with([
             'academic_course'=>$academic_course,
             'other_course'=>$other_course,
-            'paginate_other_course'=>$courses_o
+            'paginate_other_course'=>$courses_o,
+            'recent_blogs'=>$recent_blog_arr
         ]);
     }
 
@@ -186,13 +222,22 @@ class UIController extends Controller
             $latest_event_data=new EventData($data->id);
             array_push($latest_event_arr,$latest_event_data->getEventData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
 
         return view('user.blog_list')->with([
             'blogs'=>$arr,
             'paginate'=>$blogs,
             'latest_blogs'=>$latest_blog_arr,
             'latest_courses'=>$latest_other_course,
-            'latest_events'=>$latest_event_arr
+            'latest_events'=>$latest_event_arr,
+            'recent_blogs'=>$recent_blog_arr
         ]);
     }
 
@@ -222,12 +267,21 @@ class UIController extends Controller
             $latest_event_data=new EventData($data->id);
             array_push($latest_event_arr,$latest_event_data->getEventData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
 
         return view('user.blog_single')->with([
             'blog_detail'=>$blog_detail,
             'latest_blogs'=>$latest_blog_arr,
             'latest_courses'=>$latest_other_course,
-            'latest_events'=>$latest_event_arr
+            'latest_events'=>$latest_event_arr,
+            'recent_blogs'=>$recent_blog_arr
         ]);
     }
 
@@ -254,11 +308,20 @@ class UIController extends Controller
             $latest_event_data=new EventData($data->id);
             array_push($latest_event_arr,$latest_event_data->getEventData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
 
         return view('user.contact')->with([
             'latest_blogs'=>$latest_blog_arr,
             'latest_courses'=>$latest_other_course,
-            'latest_events'=>$latest_event_arr
+            'latest_events'=>$latest_event_arr,
+            'recent_blogs'=>$recent_blog_arr
         ]);
     }
 
@@ -288,12 +351,21 @@ class UIController extends Controller
             $latest_event_data=new EventData($data->id);
             array_push($latest_event_arr,$latest_event_data->getEventData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
 
         return view('user.course_single')->with([
             'course_detail'=>$course_detail,
             'latest_blogs'=>$latest_blog_arr,
             'latest_courses'=>$latest_other_course,
-            'latest_events'=>$latest_event_arr
+            'latest_events'=>$latest_event_arr,
+            'recent_blogs'=>$recent_blog_arr
         ]);
     }
 
@@ -323,12 +395,21 @@ class UIController extends Controller
             $latest_event_data=new EventData($data->id);
             array_push($latest_event_arr,$latest_event_data->getEventData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
 
         return view('user.member_single')->with([
             'member_detail'=>$member_detail,
             'latest_blogs'=>$latest_blog_arr,
             'latest_courses'=>$latest_other_course,
-            'latest_events'=>$latest_event_arr
+            'latest_events'=>$latest_event_arr,
+            'recent_blogs'=>$recent_blog_arr
         ]);
     }
 
@@ -367,12 +448,21 @@ class UIController extends Controller
             $latest_event_data=new EventData($data->id);
             array_push($latest_event_arr,$latest_event_data->getEventData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
 
        return view('user.event_single')->with([
            'event_detail'=>$event_detail,
            'latest_blogs'=>$latest_blog_arr,
            'latest_courses'=>$latest_other_course,
-           'latest_events'=>$latest_event_arr
+           'latest_events'=>$latest_event_arr,
+            'recent_blogs'=>$recent_blog_arr
        ]);
     }
 
@@ -385,8 +475,18 @@ class UIController extends Controller
             $search_courses_data=new CourseData($data->id);
             array_push($search_course_arr,$search_courses_data->getCourseData());
         }
+        
+        // footer
+        $recent_blogs=Blog::orderBy('id','desc')->limit(6)->get();
+        $recent_blog_arr=[];
+        foreach ($recent_blogs as $data){
+            $recent_blog_data=new BlogData($data->id);
+            array_push($recent_blog_arr,$recent_blog_data->getBlogData());
+        }
+        
         return view('user.search_course')->with([
-            'search'=>$search_course_arr
+            'search'=>$search_course_arr,
+            'recent_blogs'=>$recent_blog_arr
         ]);
     }
 }

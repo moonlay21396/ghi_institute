@@ -27,6 +27,12 @@ Route::group(['middleware'=>['auth','admin']],function(){
     Route::post('/update/course','CourseController@update');
     Route::post('/delete/course/{id}','CourseController@destroy');
 
+//    course for homepage
+    Route::get('/admin/course_for_home','CourseController@show_home_course');
+    Route::post('/get_all_other_course','CourseController@get_all_other_course');
+    Route::post('/change_home/course/{id}','CourseController@change_home');
+    Route::post('/change_default/course/{id}','CourseController@change_default');
+
 //    member
     Route::get('/admin/member','MemberController@index');
     Route::post('/insert/member','MemberController@store');
